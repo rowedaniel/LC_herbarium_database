@@ -1,0 +1,17 @@
+On mac, docker is weird. Here's what I did:
+
+to start docker:
+docker-machine restart
+eval $(docker-machine env default)
+docker compose -p "herbarium-backend" up -d -V --force-recreate
+
+to delete the containers:
+docker compose down --volumes
+
+to get into the mysql container:
+docker exec -it herbarium-backend-db-1 mysql -u root -p
+
+to check internal ip of container:
+docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' herbarium-backend-db-1
+
+additionally, after setting up docker-machine, turns out the vm is hosting the docker daemon (which is then linked to client on the host machine), so port forwarding goes to the "default" vm hosting the daemon. To get access from the true host (my mac), I needed to port forward in virtualbox.
