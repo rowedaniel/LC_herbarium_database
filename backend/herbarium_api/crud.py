@@ -1,5 +1,6 @@
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import Session
+from typing import Type
 
 from . import models, schemas
 

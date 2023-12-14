@@ -22,11 +22,11 @@ def upgrade() -> None:
         "specimens",
         sa.Column(
             "lotno",
-            sa.String(50),
+            sa.String(20),
             sa.ForeignKey("collectionevents.lotno"),
             nullable=False,
         ),
-        sa.Column("specimenno", sa.String(50), nullable=False, primary_key=True),
+        sa.Column("specimenno", sa.String(20), nullable=False, primary_key=True),
         sa.Column("taxorder", sa.Unicode(200)),
         sa.Column("taxsuborder", sa.Unicode(200)),
         sa.Column("taxsuperfamily", sa.Unicode(200)),

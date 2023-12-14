@@ -19,7 +19,7 @@ depends_on: Union[str, Sequence[str], None] = None
 def upgrade() -> None:
     op.create_table(
         "collectionevents",
-        sa.Column("lotno", sa.String(50), nullable=False, primary_key=True),
+        sa.Column("lotno", sa.String(20), nullable=False, primary_key=True),
         sa.Column("collector1", sa.Unicode(200)),
         sa.Column("collector2", sa.Unicode(200)),
         sa.Column("collector3", sa.Unicode(200)),
